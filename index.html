@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeakGrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    PeakGrade
+                </h1>
+                <p class="subtitle">Başarılı bir final için kapsamlı çalışma materyallerin</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-content">
+                <button class="nav-btn active" data-subject="int-prog">
+                    <i class="fas fa-code"></i>
+                    <span>İnternet Programcılığı</span>
+                </button>
+                <button class="nav-btn" data-subject="isg">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>İSG (İş Sağlığı ve Güvenliği)</span>
+                </button>
+                <button class="nav-btn" data-subject="hastane">
+                    <i class="fas fa-hospital"></i>
+                    <span>Hastane Otomasyonu</span>
+                </button>
+                <button class="nav-btn" data-subject="yazilim-mimarileri">
+                    <i class="fas fa-sitemap"></i>
+                    <span>Yazılım Mimarileri</span>
+                </button>
+                <button class="nav-btn disabled" data-subject="future">
+                    <i class="fas fa-plus"></i>
+                    <span>Yeni Ders Ekle</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Internet Programming Content -->
+            <div class="subject-content active" id="int-prog">
+                <div class="subject-header">
+                    <h2 class="subject-title">
+                        <i class="fas fa-globe-americas"></i>
+                        İnternet Programcılığı
+                    </h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                        <span class="progress-text">0/5 Konu Tamamlandı</span>
+                    </div>
+                </div>
+
+                <div class="topics-grid">
+                    <!-- Topic 1: POST/GET Events -->
+                    <div class="topic-card" data-topic="post-get">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h3 class="topic-title">POST / GET Olayları</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="topic-1" class="completion-checkbox">
+                                <label for="topic-1" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                HTTP istekleri: GET veri alma, POST veri gönderme işlemleri
+                            </div>
+                            <button class="expand-btn" onclick="toggleTopic('post-get')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 2: Form Creation -->
+                    <div class="topic-card" data-topic="form-creation">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-wpforms"></i>
+                            </div>
+                            <h3 class="topic-title">Form Oluşturma (Action & Method)</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="topic-2" class="completion-checkbox">
+                                <label for="topic-2" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                HTML formlar, action ve method özniteliklerinin kullanımı
+                            </div>
+                            <button class="expand-btn" onclick="toggleTopic('form-creation')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 3: Basic HTML CSS -->
+                    <div class="topic-card" data-topic="html-css">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="topic-title">Temel HTML & CSS</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="topic-3" class="completion-checkbox">
+                                <label for="topic-3" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                HTML etiketleri, CSS stillendirme ve layout temelleri
+                            </div>
+                            <button class="expand-btn" onclick="toggleTopic('html-css')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 4: PHP Basics -->
+                    <div class="topic-card" data-topic="php-basics">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <h3 class="topic-title">PHP Temel Konuları</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="topic-4" class="completion-checkbox">
+                                <label for="topic-4" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Değişkenler, süper global değişkenler, fonksiyonlar, dizi ve string işlemleri
+                            </div>
+                            <button class="expand-btn" onclick="toggleTopic('php-basics')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 5: Database Operations -->
+                    <div class="topic-card" data-topic="database">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="topic-title">PHP Veritabanı İşlemleri</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="topic-5" class="completion-checkbox">
+                                <label for="topic-5" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                MySQL veritabanı ve PDO kütüphanesi kullanımı
+                            </div>
+                            <button class="expand-btn" onclick="toggleTopic('database')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ISG Content -->
+            <div class="subject-content" id="isg">
+                <div class="subject-header">
+                    <h2 class="subject-title">
+                        <i class="fas fa-hard-hat"></i>
+                        İSG (İş Sağlığı ve Güvenliği)
+                    </h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="isg-progress" style="width: 0%"></div>
+                        <span class="progress-text" id="isg-progress-text">Test Başlatılmadı</span>
+                    </div>
+                </div>
+
+                <div class="test-container">
+                    <div class="test-controls">
+                        <button class="start-test-btn" onclick="startISGTest()">
+                            <i class="fas fa-play"></i>
+                            <span>Testi Başlat</span>
+                        </button>
+                        <button class="restart-test-btn" onclick="restartISGTest()" style="display: none;">
+                            <i class="fas fa-redo"></i>
+                            <span>Testi Yeniden Başlat</span>
+                        </button>
+                        <div class="test-info">
+                            <div class="info-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>101 Soru</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Süre Sınırı Yok</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-random"></i>
+                                <span>Karışık Sıralama</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-content" id="test-content" style="display: none;">
+                        <div class="test-header">
+                            <div class="question-counter">
+                                <span id="current-question">1</span> / <span id="total-questions">101</span>
+                            </div>
+                            <div class="test-timer">
+                                <i class="fas fa-stopwatch"></i>
+                                <span id="test-timer">00:00</span>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-text" id="question-text">
+                                <!-- Soru buraya gelecek -->
+                            </div>
+                            <div class="answer-options" id="answer-options">
+                                <!-- Seçenekler buraya gelecek -->
+                            </div>
+                        </div>
+
+                        <div class="test-navigation">
+                            <button class="nav-btn-test" onclick="previousQuestion()" id="prev-btn" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                                Önceki
+                            </button>
+                            <button class="nav-btn-test" onclick="nextQuestion()" id="next-btn">
+                                Sonraki
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="finish-test-btn" onclick="finishTest()" id="finish-btn" style="display: none;">
+                                <i class="fas fa-flag-checkered"></i>
+                                Testi Bitir
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="test-results" id="test-results" style="display: none;">
+                        <div class="results-header">
+                            <h3>Test Sonuçları</h3>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="score-percentage">0%</span>
+                                </div>
+                                <div class="score-details">
+                                    <div class="score-item correct">
+                                        <i class="fas fa-check"></i>
+                                        <span>Doğru: <strong id="correct-count">0</strong></span>
+                                    </div>
+                                    <div class="score-item wrong">
+                                        <i class="fas fa-times"></i>
+                                        <span>Yanlış: <strong id="wrong-count">0</strong></span>
+                                    </div>
+                                    <div class="score-item empty">
+                                        <i class="fas fa-minus"></i>
+                                        <span>Boş: <strong id="empty-count">0</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="answer-key-section">
+                            <button class="show-answer-key-btn" onclick="toggleAnswerKey()">
+                                <i class="fas fa-key"></i>
+                                <span>Cevap Anahtarını Göster/Gizle</span>
+                            </button>
+                            <div class="answer-key" id="answer-key" style="display: none;">
+                                <!-- Cevap anahtarı buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hastane Otomasyonu Content -->
+            <div class="subject-content" id="hastane">
+                <div class="subject-header">
+                    <h2 class="subject-title">
+                        <i class="fas fa-hospital"></i>
+                        Hastane Otomasyonu
+                    </h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="hastane-progress" style="width: 0%"></div>
+                        <span class="progress-text" id="hastane-progress-text">Test Başlatılmadı</span>
+                    </div>
+                </div>
+
+                <div class="test-container">
+                    <div class="test-controls">
+                        <button class="start-test-btn" onclick="startHastaneTest()">
+                            <i class="fas fa-play"></i>
+                            <span>Testi Başlat</span>
+                        </button>
+                        <button class="restart-test-btn" onclick="restartHastaneTest()" style="display: none;">
+                            <i class="fas fa-redo"></i>
+                            <span>Testi Yeniden Başlat</span>
+                        </button>
+                        <div class="test-info">
+                            <div class="info-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>160 Soru</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Süre Sınırı Yok</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-random"></i>
+                                <span>Karışık Sıralama</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-key"></i>
+                                <span>Her 10 Soruda Cevap Anahtarı</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-content" id="hastane-test-content" style="display: none;">
+                        <div class="test-header">
+                            <div class="question-counter">
+                                <span id="hastane-current-question">1</span> / <span id="hastane-total-questions">160</span>
+                            </div>
+                            <div class="test-timer">
+                                <i class="fas fa-stopwatch"></i>
+                                <span id="hastane-test-timer">00:00</span>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-text" id="hastane-question-text">
+                                <!-- Soru buraya gelecek -->
+                            </div>
+                            <div class="answer-options" id="hastane-answer-options">
+                                <!-- Seçenekler buraya gelecek -->
+                            </div>
+                        </div>
+
+                        <div class="test-navigation">
+                            <button class="nav-btn-test" onclick="previousHastaneQuestion()" id="hastane-prev-btn" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                                Önceki
+                            </button>
+                            <button class="nav-btn-test" onclick="nextHastaneQuestion()" id="hastane-next-btn">
+                                Sonraki
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="finish-test-btn" onclick="finishHastaneTest()" id="hastane-finish-btn" style="display: none;">
+                                <i class="fas fa-flag-checkered"></i>
+                                Testi Bitir
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="test-results" id="hastane-test-results" style="display: none;">
+                        <div class="results-header">
+                            <h3>Test Sonuçları</h3>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="hastane-score-percentage">0%</span>
+                                </div>
+                                <div class="score-details">
+                                    <div class="score-item correct">
+                                        <i class="fas fa-check"></i>
+                                        <span>Doğru: <strong id="hastane-correct-count">0</strong></span>
+                                    </div>
+                                    <div class="score-item wrong">
+                                        <i class="fas fa-times"></i>
+                                        <span>Yanlış: <strong id="hastane-wrong-count">0</strong></span>
+                                    </div>
+                                    <div class="score-item empty">
+                                        <i class="fas fa-minus"></i>
+                                        <span>Boş: <strong id="hastane-empty-count">0</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="answer-key-section">
+                            <button class="show-answer-key-btn" onclick="toggleHastaneAnswerKey()">
+                                <i class="fas fa-key"></i>
+                                <span>Cevap Anahtarını Göster/Gizle</span>
+                            </button>
+                            <div class="answer-key" id="hastane-answer-key" style="display: none;">
+                                <!-- Cevap anahtarı buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intermediate Answer Keys -->
+                    <div class="intermediate-results" id="hastane-intermediate-results" style="display: none;">
+                        <div class="intermediate-header">
+                            <h3>İlk <span id="intermediate-range">10</span> Sorunun Cevap Anahtarı</h3>
+                            <div class="intermediate-score">
+                                <span id="intermediate-score-text">0/10 Doğru</span>
+                            </div>
+                        </div>
+                        
+                        <div class="intermediate-answer-key" id="intermediate-answer-key">
+                            <!-- Ara cevap anahtarı buraya gelecek -->
+                        </div>
+                        
+                        <div class="intermediate-actions">
+                            <button class="continue-test-btn" onclick="continueHastaneTest()">
+                                <i class="fas fa-arrow-right"></i>
+                                Teste Devam Et
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yazılım Mimarileri Content -->
+            <div class="subject-content" id="yazilim-mimarileri">
+                <div class="subject-header">
+                    <h2 class="subject-title">
+                        <i class="fas fa-sitemap"></i>
+                        Yazılım Mimarileri
+                    </h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                        <span class="progress-text">0/8 Konu Tamamlandı</span>
+                    </div>
+                </div>
+
+                <div class="topics-grid">
+                    <!-- Topic 1: Yazılım Mühendisliği Temelleri -->
+                    <div class="topic-card" data-topic="yazilim-muhendisligi">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="topic-title">Yazılım Mühendisliği Temelleri</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-1" class="completion-checkbox">
+                                <label for="yazilim-topic-1" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Yazılım mühendisliği nedir? Neden bu kadar önemli? Günlük hayattaki rolü
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('yazilim-muhendisligi')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 2: Yazılım Süreçleri -->
+                    <div class="topic-card" data-topic="yazilim-surecleri">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3 class="topic-title">Yazılım Geliştirme Süreçleri</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-2" class="completion-checkbox">
+                                <label for="yazilim-topic-2" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Yazılım nasıl geliştirilir? Çağlayan, Artırımlı ve diğer geliştirme yöntemleri
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('yazilim-surecleri')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 3: Gereksinim Mühendisliği -->
+                    <div class="topic-card" data-topic="gereksinim-muhendisligi">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3 class="topic-title">Müşteri İsteklerini Anlama</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-3" class="completion-checkbox">
+                                <label for="yazilim-topic-3" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Müşteri ne istiyor? Yazılım gereksinimlerini nasıl belirler ve yönetiriz?
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('gereksinim-muhendisligi')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 4: Sistem Modelleme -->
+                    <div class="topic-card" data-topic="sistem-modelleme">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-draw-polygon"></i>
+                            </div>
+                            <h3 class="topic-title">Yazılımı Görselleştirme</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-4" class="completion-checkbox">
+                                <label for="yazilim-topic-4" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Karmaşık yazılımları nasıl anlaşılır hale getiririz? UML ve modelleme teknikleri
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('sistem-modelleme')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 5: Yazılım Etiği -->
+                    <div class="topic-card" data-topic="yazilim-etigi">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="topic-title">Yazılım Etiği ve Sorumluluk</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-5" class="completion-checkbox">
+                                <label for="yazilim-topic-5" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Yazılımcıların ahlaki sorumlulukları, etik kurallar ve profesyonel davranış
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('yazilim-etigi')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 6: Prototipleme ve Spiral Model -->
+                    <div class="topic-card" data-topic="prototipleme-spiral">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h3 class="topic-title">İleri Geliştirme Yöntemleri</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-6" class="completion-checkbox">
+                                <label for="yazilim-topic-6" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Prototipleme teknikları, Spiral model, RUP ve risk yönetimi
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('prototipleme-spiral')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 7: İleri UML ve Modelleme -->
+                    <div class="topic-card" data-topic="ileri-uml">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3 class="topic-title">İleri UML ve Model Tabanlı Mühendislik</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-7" class="completion-checkbox">
+                                <label for="yazilim-topic-7" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                Detaylı UML diyagramları, davranışsal modeller, çalıştırılabilir UML
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('ileri-uml')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Topic 8: Gerçek Hayat Örnekleri -->
+                    <div class="topic-card" data-topic="gercek-ornekler">
+                        <div class="topic-header">
+                            <div class="topic-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="topic-title">Gerçek Hayat Örnekleri</h3>
+                            <div class="completion-status">
+                                <input type="checkbox" id="yazilim-topic-8" class="completion-checkbox">
+                                <label for="yazilim-topic-8" class="completion-label"></label>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-summary">
+                                İnsülin pompası, hastane sistemi, hava durumu istasyonu gibi gerçek projeler
+                            </div>
+                            <button class="expand-btn" onclick="toggleYazilimTopic('gercek-ornekler')">
+                                <span>Detayları Göster</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Detailed Content Modal -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title"></h3>
+                    <button class="close-modal" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 PeakGrade - Başarılar dilerim! 🎓</p>
+                <div class="study-stats">
+                    <span>Toplam İlerleme: <strong id="total-progress">0%</strong></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
